@@ -168,12 +168,69 @@ CREATE TABLE [dbo].[Stock](
 ) ON [PRIMARY]
 GO
 
+/* --- User --- */
+CREATE TABLE [dbo].[User](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Username] [varchar](50) NOT NULL,
+	[FirstName] [nvarchar](50) NOT NULL,
+	[LastName] [nvarchar](100) NOT NULL,
+	[Password] [nvarchar](max) NOT NULL,
+	[OfficeId] [int] NOT NULL,
+ CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
 
-
+/* --- MaterialChange --- */
+CREATE TABLE [dbo].[MaterialChange](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[UserId] [int] NOT NULL,
+	[PrinterId] [int] NOT NULL,
+	[MaterialId] [int] NOT NULL,
+ CONSTRAINT [PK_MaterialChange] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
 
 /****************************    **********************     ***************************/
 /****************************    CREATING RELATIONSHIPS     ***************************/
 /****************************                               ***************************/
+
+
+/* --- MaterialChange --- */
+ALTER TABLE [dbo].[MaterialChange]  WITH CHECK ADD  CONSTRAINT [FK_MaterialChange_MaterialId] FOREIGN KEY([MaterialId])
+REFERENCES [dbo].[Material] ([Id])
+GO
+
+ALTER TABLE [dbo].[MaterialChange] CHECK CONSTRAINT [FK_MaterialChange_MaterialId]
+GO
+
+ALTER TABLE [dbo].[MaterialChange]  WITH CHECK ADD  CONSTRAINT [FK_MaterialChange_PrinterId] FOREIGN KEY([PrinterId])
+REFERENCES [dbo].[Printer] ([Id])
+GO
+
+ALTER TABLE [dbo].[MaterialChange] CHECK CONSTRAINT [FK_MaterialChange_PrinterId]
+GO
+
+ALTER TABLE [dbo].[MaterialChange]  WITH CHECK ADD  CONSTRAINT [FK_MaterialChange_UserId] FOREIGN KEY([UserId])
+REFERENCES [dbo].[User] ([Id])
+GO
+
+ALTER TABLE [dbo].[MaterialChange] CHECK CONSTRAINT [FK_MaterialChange_UserId]
+GO
+
+
+/* --- User --- */
+ALTER TABLE [dbo].[User]  WITH CHECK ADD  CONSTRAINT [FK_User_OfficeId] FOREIGN KEY([OfficeId])
+REFERENCES [dbo].[Office] ([Id])
+GO
+
+ALTER TABLE [dbo].[User] CHECK CONSTRAINT [FK_User_OfficeId]
+GO
 
 /* --- Material --- */
 ALTER TABLE [dbo].[Material]  WITH CHECK ADD  CONSTRAINT [FK_Material_MaterialtypeId] FOREIGN KEY([MaterialtypeId])

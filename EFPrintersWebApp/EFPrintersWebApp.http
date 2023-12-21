@@ -1,0 +1,6 @@
+@EFPrintersWebApp_HostAddress = http://localhost:5062
+
+GET {{EFPrintersWebApp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

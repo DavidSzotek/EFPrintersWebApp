@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34330.188
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFPrintersWebApp", "EFPrintersWebApp\EFPrintersWebApp.csproj", "{A5F1088F-63FB-4413-ABAA-53099113646D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5F1088F-63FB-4413-ABAA-53099113646D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A5F1088F-63FB-4413-ABAA-53099113646D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A5F1088F-63FB-4413-ABAA-53099113646D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A5F1088F-63FB-4413-ABAA-53099113646D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {8E9A7C81-5FB3-4E52-8375-9ADB8966D2C9}
+	EndGlobalSection
+EndGlobal
